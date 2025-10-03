@@ -1,38 +1,19 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SocialLink } from '../../types/common.types';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SOCIAL_LINKS } from '../../data/social-links.data';
+import { NAVIGATION_ITEMS } from '../../data/navigation.data';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [RouterModule],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  currentYear = new Date().getFullYear();
-  angularVersion = '20';
-
-  socialLinks: SocialLink[] = [
-    {
-      platform: 'GitHub',
-      url: 'https://github.com/thierno-bah',
-      icon: '🐙'
-    },
-    {
-      platform: 'LinkedIn',
-      url: 'https://linkedin.com/in/thierno-bah',
-      icon: '💼'
-    },
-    {
-      platform: 'Twitter',
-      url: 'https://twitter.com/thierno_bah',
-      icon: '🐦'
-    },
-    {
-      platform: 'Email',
-      url: 'mailto:contact@thierno-bah.fr',
-      icon: '📧'
-    }
-  ];
+  protected readonly currentYear = new Date().getFullYear();
+  protected readonly angularVersion = '20';
+  protected readonly navigationItems = signal(NAVIGATION_ITEMS);
+  protected readonly socialLinks = signal(SOCIAL_LINKS);
+  protected readonly hasSocialLinks = computed(() => this.socialLinks().length > 0);
 }

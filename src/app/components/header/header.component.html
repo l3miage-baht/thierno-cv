@@ -1,36 +1,56 @@
-<header class="header" [class.scrolled]="isScrolled">
-  <nav class="nav container">
-    <div class="nav-brand">
-      <a routerLink="/" class="brand-link">
-        <span class="brand-text">Thierno Bah</span>
-      </a>
-    </div>
+<nav class="nav container" role="navigation" aria-label="Navigation principale">
+  <div class="nav-brand">
+    <a routerLink="/" class="brand-link" aria-label="Retour à l'accueil">
+      <span class="brand-text">Thierno Bah</span>
+    </a>
+  </div>
 
-    <div class="nav-menu" [class.active]="isMenuOpen">
-      <ul class="nav-list">
-        <li *ngFor="let item of navigationItems" class="nav-item">
+  <div
+    class="nav-menu"
+    [class.active]="isMenuOpen()"
+    id="primary-navigation"
+    [attr.aria-hidden]="!isMenuOpen()"
+  >
+    <ul class="nav-list">
+      @for (item of navigationItems(); track item.path) {
+        <li class="nav-item">
           <a
             [routerLink]="item.path"
             class="nav-link"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: item.path === '/' }"
             (click)="closeMenu()"
+            #navLink
           >
             {{ item.label }}
           </a>
         </li>
-      </ul>
-    </div>
+      }
+    </ul>
+  </div>
+
+  <div class="nav-actions">
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="themeLabel()"
+    >
+      <span aria-hidden="true">{{ themeIcon() }}</span>
+    </button>
 
     <button
+      type="button"
       class="menu-toggle"
-      [class.active]="isMenuOpen"
+      [class.active]="isMenuOpen()"
       (click)="toggleMenu()"
-      aria-label="Toggle navigation"
+      [attr.aria-label]="menuButtonLabel()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-controls="primary-navigation"
     >
       <span></span>
       <span></span>
       <span></span>
     </button>
-  </nav>
-</header>
+  </div>
+</nav>

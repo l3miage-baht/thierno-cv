@@ -1,10 +1,9 @@
-// Variables locales
 $hero-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 $card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 
 .hero {
-  padding: 4rem 0;
+  padding: 4rem 0 3rem;
   background: $hero-bg;
   min-height: 70vh;
   display: flex;
@@ -13,15 +12,15 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4rem;
   align-items: center;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 4vw, 3.25rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-bottom: 1rem;
   color: var(--text-color);
 }
@@ -34,7 +33,7 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   color: var(--secondary-color);
   font-weight: 400;
   margin-bottom: 1.5rem;
@@ -50,6 +49,7 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 .hero-actions {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .hero-image {
@@ -58,34 +58,16 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
   align-items: center;
 }
 
-.image-placeholder {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, var(--primary-color), #7c3aed);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
-  animation: float 6s ease-in-out infinite;
-}
-
-.emoji {
-  font-size: 4rem;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.hero-portrait {
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 45px rgba(37, 99, 235, 0.15);
+  object-fit: cover;
+  max-width: 100%;
 }
 
 .features {
-  padding: 5rem 0;
-  background-color: white;
+  padding: 5rem 0 4rem;
+  background-color: var(--surface-color);
 }
 
 .section-title {
@@ -103,14 +85,14 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .feature-card {
-  background: white;
+  background: var(--background-color);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
   box-shadow: $card-shadow;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: $card-shadow-hover;
@@ -134,26 +116,35 @@ $card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
   line-height: 1.6;
 }
 
-/* Responsive */
+.cta-wrapper {
+  padding: 4rem 0 6rem;
+  background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.1));
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0 2rem;
+    min-height: auto;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
+    gap: 2.5rem;
   }
 
   .hero-actions {
     justify-content: center;
-    flex-wrap: wrap;
   }
 
-  .image-placeholder {
-    width: 250px;
-    height: 250px;
+  .features {
+    padding: 4rem 0 3rem;
   }
 
   .features-grid {
