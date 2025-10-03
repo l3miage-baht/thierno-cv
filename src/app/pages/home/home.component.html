@@ -1,0 +1,46 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content fade-in">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Salut, je suis
+          <span class="highlight">Thierno Bah</span> 👋
+        </h1>
+        <h2 class="hero-subtitle">
+          Développeur Full Stack passionné
+        </h2>
+        <p class="hero-description">
+          Je crée des expériences web modernes et performantes avec
+          les dernières technologies. Spécialisé en React, Angular,
+          Node.js et bien plus encore.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/portfolio" class="btn btn-primary">
+            Voir mes projets
+          </a>
+          <a routerLink="/contact" class="btn btn-outline">
+            Me contacter
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-placeholder">
+          <span class="emoji">👨‍💻</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h3 class="section-title">Ce que je fais</h3>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h4 class="feature-title">{{ feature.title }}</h4>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

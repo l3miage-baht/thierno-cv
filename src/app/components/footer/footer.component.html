@@ -1,0 +1,49 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">Thierno Bah</h3>
+        <p class="footer-description">
+          Développeur Full Stack passionné par les technologies modernes
+          et l'innovation. Toujours en quête de nouveaux défis techniques.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="section-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/" class="footer-link">Accueil</a></li>
+          <li><a href="/about" class="footer-link">À propos</a></li>
+          <li><a href="/portfolio" class="footer-link">Portfolio</a></li>
+          <li><a href="/blog" class="footer-link">Blog</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="section-title">Réseaux sociaux</h4>
+        <div class="social-links">
+          <a
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            [title]="social.platform"
+          >
+            <span>{{ social.icon }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <p>&copy; {{ currentYear }} Thierno Bah. Tous droits réservés.</p>
+      </div>
+      <div class="footer-tech">
+        <p>Développé avec ❤️ et Angular {{ angularVersion }}</p>
+      </div>
+    </div>
+  </div>
+</footer>
