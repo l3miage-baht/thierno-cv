@@ -1,0 +1,14 @@
+<section class="cta" [class.cta--emphasize]="emphasize()">
+  <div class="cta-content">
+    <h3 class="cta-title">{{ title() }}</h3>
+    @if (description()) {
+      <p class="cta-description">{{ description() }}</p>
+    }
+  </div>
+  <div class="cta-actions">
+    <a [routerLink]="primaryLink()" class="btn btn-primary">{{ primaryLabel() }}</a>
+    @if (hasSecondaryAction()) {
+      <a [routerLink]="secondaryLink()!" class="btn btn-outline">{{ secondaryLabel() }}</a>
+    }
+  </div>
+</section>

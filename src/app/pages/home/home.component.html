@@ -24,9 +24,14 @@
         </div>
       </div>
       <div class="hero-image">
-        <div class="image-placeholder">
-          <span class="emoji">👨‍💻</span>
-        </div>
+        <img
+          ngSrc="assets/profile-placeholder.svg"
+          alt="Illustration de Thierno Bah"
+          width="320"
+          height="320"
+          priority
+          class="hero-portrait"
+        />
       </div>
     </div>
   </div>
@@ -36,11 +41,27 @@
   <div class="container">
     <h3 class="section-title">Ce que je fais</h3>
     <div class="features-grid">
-      <div class="feature-card" *ngFor="let feature of features">
-        <div class="feature-icon">{{ feature.icon }}</div>
-        <h4 class="feature-title">{{ feature.title }}</h4>
-        <p class="feature-description">{{ feature.description }}</p>
-      </div>
+      @for (feature of features(); track feature.title) {
+        <div class="feature-card">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h4 class="feature-title">{{ feature.title }}</h4>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      }
     </div>
+  </div>
+</section>
+
+<section class="cta-wrapper">
+  <div class="container">
+    <app-call-to-action
+      [title]="'Prêt à construire votre prochain projet ?'"
+      [description]="'Discutons de vos idées et donnons vie à une expérience digitale mémorable.'"
+      [primaryLabel]="'Parler de votre projet'"
+      [primaryLink]="'/contact'"
+      [secondaryLabel]="'Voir le portfolio'"
+      [secondaryLink]="'/portfolio'"
+      [emphasize]="true"
+    ></app-call-to-action>
   </div>
 </section>

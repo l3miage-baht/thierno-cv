@@ -10,6 +10,12 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface Project {
   id: string;
   title: string;
