@@ -2,23 +2,23 @@ import { Feature } from '../types/common.types';
 
 export const FEATURES: ReadonlyArray<Feature> = [
   {
-    icon: '🎨',
-    title: 'Frontend Development',
-    description: "Création d'interfaces utilisateur modernes avec React, Angular et Vue.js"
+    icon: "🧭",
+    title: "Stratégie & Gouvernance SI",
+    description: "Alignement des systèmes d'information avec vos objectifs métiers et trajectoire digitale"
   },
   {
-    icon: '⚙️',
-    title: 'Backend Development',
-    description: 'APIs robustes avec Node.js, Python et bases de données relationnelles/NoSQL'
+    icon: "📊",
+    title: "Business Intelligence & Data",
+    description: "Conception d'indicateurs fiables, datavisualisation et valorisation de vos référentiels"
   },
   {
-    icon: '🚀',
-    title: 'DevOps & Cloud',
-    description: 'Déploiement et infrastructure cloud avec AWS, Docker et CI/CD'
+    icon: "🤝",
+    title: "Pilotage de projets",
+    description: "Coordination PMO, cadrage fonctionnel et suivi de la valeur délivrée"
   },
   {
-    icon: '📱',
-    title: 'Mobile Development',
-    description: 'Applications mobiles cross-platform avec React Native et Flutter'
+    icon: "🚀",
+    title: "Accompagnement du changement",
+    description: "Mobilisation des équipes, communication et adoption durable des nouveaux usages"
   }
 ] as const;
