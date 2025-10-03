@@ -3,22 +3,22 @@ import { SocialLink } from '../types/common.types';
 export const SOCIAL_LINKS: ReadonlyArray<SocialLink> = [
   {
     platform: 'GitHub',
-    url: 'https://github.com/thierno-bah',
+    url: 'https://github.com/l3miage-baht',
     icon: '🐙'
   },
   {
     platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/thierno-bah',
+    url: 'https://www.linkedin.com/in/bah-thierno/',
     icon: '💼'
   },
   {
-    platform: 'Twitter',
-    url: 'https://twitter.com/thierno_bah',
-    icon: '🐦'
+    platform: 'Email',
+    url: 'mailto:bahalioufgn@gmail.com',
+    icon: '📧'
   },
   {
-    platform: 'Email',
-    url: 'mailto:contact@thierno-bah.fr',
-    icon: '📧'
+    platform: 'Site personnel',
+    url: 'https://www.thierno-bah.fr/',
+    icon: '🌐'
   }
 ] as const;
