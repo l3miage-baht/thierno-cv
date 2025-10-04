@@ -15,10 +15,5 @@ export const SOCIAL_LINKS: ReadonlyArray<SocialLink> = [
     platform: 'Email',
     url: 'mailto:bahalioufgn@gmail.com',
     icon: '📧'
-  },
-  {
-    platform: 'Site personnel',
-    url: 'https://www.thierno-bah.fr/',
-    icon: '🌐'
   }
 ] as const;

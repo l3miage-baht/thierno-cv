@@ -7,7 +7,7 @@ type Theme = 'light' | 'dark';
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly mediaQuery = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-color-scheme: dark)')
+    ? window.matchMedia('(prefers-color-scheme: light)')
     : undefined;
 
   readonly currentTheme = signal<Theme>(this.mediaQuery?.matches ? 'dark' : 'light');
